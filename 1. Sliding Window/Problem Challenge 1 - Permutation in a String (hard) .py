@@ -45,7 +45,6 @@ from sqlite3 import Time
 
 
 def find_permutation(str, pattern):
-    # TODO: Write your code here
     p_dict = {}
     s_dict = {}
     for p in pattern:

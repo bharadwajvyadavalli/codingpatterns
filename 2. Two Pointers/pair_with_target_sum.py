@@ -20,7 +20,6 @@ Explanation: The numbers at index 0 and 2 add up to 11: 2+9=11
 
 # mycode
 def pair_with_target_sum(arr, target_sum):
-    # TODO: Write your code here
     i, j = 0, len(arr) - 1
     while i < j:
         if arr[i] + arr[j] < target_sum:
