@@ -1,57 +1,10 @@
 '''
-Problem Challenge 3
 
-Employee Free Time (hard)
-
-For ‘K’ employees, we are given a list of intervals representing the working hours of each employee. 
-Our goal is to find out if there is a free interval that is common to all employees. 
-You can assume that each list of employee working hours is sorted on the start time.
-
-Example 1:
-
-Input: Employee Working Hours=[[[1,3], [5,6]], [[2,3], [6,8]]]
-Output: [3,5]
-Explanation: Both the employess are free between [3,5].
-
-Example 2:
-
-Input: Employee Working Hours=[[[1,3], [9,12]], [[2,4]], [[6,8]]]
-Output: [4,6], [8,9]
-Explanation: All employess are free between [4,6] and [8,9].
-
-Example 3:
-
-Input: Employee Working Hours=[[[1,3]], [[2,4]], [[3,5], [7,9]]]
-Output: [5,7]
-Explanation: All employess are free between [5,7].
 '''
 
 
 #mycode
-from __future__ import print_function
 
-class Interval:
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
-
-    def print_interval(self):
-        print("[" + str(self.start) + ", " + str(self.end) + "]", end='')
-
-
-def find_employee_free_time(schedule):
-    result = []
-    # TODO: Write your code here
-    temp = []
-
-    for i in schedule:
-        for j in i:
-            temp.append(j)
-    temp.sort(key=lambda x: x.start)
-    for i in range(1,len(temp)):
-        if temp[i].start > temp[i-1].end:
-            result.append(Interval(temp[i-1].end,temp[i].start))
-    return result
 
 
 def main():
