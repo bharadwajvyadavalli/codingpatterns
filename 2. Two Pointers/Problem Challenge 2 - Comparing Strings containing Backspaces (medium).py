@@ -1,69 +1,9 @@
 '''
-Problem Challenge 2
 
-Comparing Strings containing Backspaces (medium)
-
-Given two strings containing backspaces (identified by the character ‘#’), check if the two strings are equal.
-
-Example 1:
-
-Input: str1="xy#z", str2="xzz#"
-Output: true
-Explanation: After applying backspaces the strings become "xz" and "xz" respectively.
-
-Example 2:
-
-Input: str1="xy#z", str2="xyz#"
-Output: false
-Explanation: After applying backspaces the strings become "xz" and "xy" respectively.
-
-Example 3:
-
-Input: str1="xp#", str2="xyz##"
-Output: true
-Explanation: After applying backspaces the strings become "x" and "x" respectively.
-In "xyz##", the first '#' removes the character 'z' and the second '#' removes the character 'y'.
-
-Example 4:
-
-Input: str1="xywrrmp", str2="xywrrmu#p"
-Output: true
-Explanation: After applying backspaces the strings become "xywrrmp" and "xywrrmp" respectively.
 '''
 
 #mycode
-def backspace_compare(str1, str2):
-  # TODO: Write your code here
-  if clean(str1) == clean(str2):
-    return True
-  return False
 
-def clean(str):
-  i= len(str)-1
-  while i >= 0:
-    count = 0
-    
-    while i >= 0 and str[i] == '#':
-      count += 1
-      i -= 1
-    
-    if count > 0 and i+count == len(str)-1:
-      str=str[:i-count+1]
-      i = i - count 
-
-    elif count > 0 and i-count+1==0 :
-      str=str[i+count+1:]
-      i=-1
-
-    elif count>0 :
-      str=str[:i-count+1]+ str[i+count+1:]
-      i=i-count -1   
-      print(str)
-    else:
-      i=i-1
-        
-    print(str,count,i)
-  return str
 
 
 #answer
