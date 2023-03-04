@@ -1,57 +1,9 @@
 '''
-Problem Statement 
-Given the head of a Singly LinkedList that contains a cycle, write a function to find the starting node of the cycle.
 '''
 
 
 #mycode
-from __future__ import print_function
 
-
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next = next
-
-  def print_list(self):
-    temp = self
-    while temp is not None:
-      print(temp.value, end='')
-      temp = temp.next
-    print()
-
-
-def find_cycle_start(head):
-  # TODO: Write your code here
-  slow, fast = head, head
-  while fast is not None and fast.next is not None:
-    fast = fast.next.next
-    slow = slow.next
-    if slow == fast:
-      leng = length(slow)
-      break
-  return search_start(head, leng)
-
-def length(node):
-  current = node
-  length = 0
-  while current is not None:
-    current = current.next
-    length += 1
-    if current == node:
-      return length
-  return 0
-
-def search_start(head, length):
-  slow, fast = head, head
-  for i in range(length):
-    fast=fast.next
-  
-  while slow != fast:
-    fast = fast.next
-    slow = slow.next
-  
-  return slow
 
 
 
