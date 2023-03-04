@@ -1,68 +1,15 @@
 '''
 Problem Challenge 3
 
-Smallest Window containing Substring (hard) 
-Given a string and a pattern, find the smallest substring in the given string which has all the characters of the given pattern.
 
-Example 1:
-
-Input: String="aabdec", Pattern="abc"
-Output: "abdec"
-Explanation: The smallest substring having all characters of the pattern is "abdec"
-
-Example 2:
-
-Input: String="abdabca", Pattern="abc"
-Output: "abc"
-Explanation: The smallest substring having all characters of the pattern is "abc".
-
-Example 3:
-
-Input: String="adcad", Pattern="abc"
-Output: ""
-Explanation: No substring in the given string has all characters of the pattern.
 '''
 
 
 #mycode
 import math
-def find_substring(str, pattern):
-  # TODO: Write your code here
-  p_dict={}
-  s_dict={}
-  result=""
 
-  win_start, min_len = 0, math.inf
 
-  for p in pattern:
-    if p not in p_dict:
-      p_dict[p] = 1
-    else:
-      p_dict[p] += 1
 
-  for win_end in range(len(str)):
-    if str[win_end] not in s_dict:
-      s_dict[str[win_end]] = 1
-    else:
-      s_dict[str[win_end]] += 1
-    
-    print(s_dict)
-
-    while set(p_dict.keys()).issubset(set(s_dict.keys())):
-      if win_end-win_start+1 < min_len:
-        min_len=win_end-win_start+1
-        if win_end == len(str)-1:
-          result=str[win_start:]
-        else:
-          result=str[win_start:win_end+1]
-
-      if s_dict[str[win_start]] == 1:
-        del s_dict[str[win_start]]
-      else:
-        s_dict[str[win_start]] -= 1
-      win_start += 1
-
-  return result
 
 
 
