@@ -1,29 +1,6 @@
 from union_find import UnionFind
 
-def num_islands(grid):
-    if not grid:
-        return 0
 
-    cols = len(grid[0])
-    rows = len(grid)
-    union_find = UnionFind(grid)
-
-    for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == '1':
-                grid[r][c] = '0'
-
-                if r - 1 >= 0 and grid[r-1][c] == "1":
-                    union_find.union(r * cols + c, (r-1) * nc + c)
-                if r + 1 < rows and grid[r+1][c] == "1":
-                    union_find.union(r * cols + c, (r+1) * cols + c)
-                if c - 1 >= 0 and grid[r][c-1] == "1":
-                    union_find.union(r * cols + c, r * cols + c - 1)
-                if c + 1 < cols and grid[r][c+1] == "1":
-                    union_find.union(r * cols + c, r * cols + c + 1)
-
-    count = union_find.get_count()
-    return count
 
 
 def main():

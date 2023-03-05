@@ -1,12 +1,7 @@
 from union_find import UnionFind
 
 
-def redundant_connection(edges):
-    graph = UnionFind(len(edges))
 
-    for v1, v2 in edges:
-        if not graph.union(v1, v2):
-            return [v1, v2]
 
 
 def main():
