@@ -1,38 +1,5 @@
 # Function to search a specific word in the grid
-def word_search(grid, word):
-    n = len(grid)
-    if n < 1:
-        return False
-    m = len(grid[0])
-    if m < 1:
-        return False
-    for row in range(n):
-        for col in range(m):
-            if depth_first_search(row, col, word, grid):
-                return True
-    return False
 
-# Apply backtracking on every element to search the required word
-def depth_first_search(row, col, word, grid):
-    if len(word) == 0:
-        return True
-
-    if row < 0 or row == len(grid) or col < 0 or col == len(grid[0]) \
-            or grid[row][col].lower() != word[0].lower():
-        return False
-
-    result = False
-    grid[row][col] = '*'
-
-    for rowOffset, colOffset in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-        result = depth_first_search(row + rowOffset, col + colOffset,
-                                    word[1:], grid)
-        if result:
-            break
-
-    grid[row][col] = word[0]
-
-    return result
 
 def main():
     input = [
