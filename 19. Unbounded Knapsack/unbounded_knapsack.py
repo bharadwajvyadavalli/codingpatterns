@@ -1,28 +1,4 @@
-def unbounded_knapsack(weights, values, n, capacity):
-    dp = [[0 for i in range(capacity + 1)] for j in range(n + 1)]
 
-    # Base case
-    for i in range(weights[0], capacity + 1):
-        dp[0][i] = (i // weights[0]) * values[0]
-
-    for i in range(1, n):
-        for j in range(0, capacity + 1):
-
-            # Check if the weight of the nth item is less than capacity
-            # If it is, we have two choices
-            # 1) Include the item
-            # 2) Don't include the item
-            if (weights[i] <= j):
-                taken = values[i] + dp[i][j - weights[i]]
-                not_taken = 0 + dp[i - 1][j]
-                dp[i][j] = max(taken, not_taken)
-
-            # If weight of the nth item is greater than the capacity
-            # Don't include the item
-            else:
-                dp[i][j] = dp[i - 1][j]
-
-    return dp[n - 1][capacity]
 
 
 # Driver code

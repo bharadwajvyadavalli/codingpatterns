@@ -1,30 +1,4 @@
-def count_ways(coins, amount):
-    if amount == 0:  # base case 1
-        return 1
-    if amount <= 0:  # base case 2
-        return 0
 
-    # create and initialize the 2-D array
-    dp = [[1 for _ in range(len(coins))] for _ in range(amount + 1)]
-
-    # iterate over the 2-D array and update the values accordingly
-    for amt in range(1, amount + 1):
-        for j in range(len(coins)):
-
-            # keep the count of solutions including coins[j]
-            coin = coins[j]
-            if amt - coin >= 0:
-                x = dp[amt - coin][j]
-            else:
-                x = 0
-
-            # keep the count of solutions excluding coins[j]
-            if j >= 1:
-                y = dp[amt][j - 1]
-            else:
-                y = 0
-            dp[amt][j] = x + y
-    return dp[amount][len(coins) - 1]
 
 
 def main():

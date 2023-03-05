@@ -1,32 +1,4 @@
-def rod_cutting(lengths, prices, n):
-    lengthsCount = len(lengths)
-    pricesCount = len(prices)
 
-    # base cases
-    if n == 0 or pricesCount == 0 or pricesCount != lengthsCount:
-        return 0
-
-    # Creating a lookup table of size len(lengths) x (n + 1)
-    dp = [[0 for _ in range(n + 1)] for _ in range(lengthsCount)]
-
-    # process all rod lengths for all given lengths
-    for curr in range(lengthsCount):
-        for rod_length in range(1, n + 1):
-            # Fetch the maximum revenue obtained by selling the rod
-            # of size rod_length - lengths[curr]
-            revenue1 = revenue2 = 0
-            if lengths[curr] <= rod_length:
-                revenue1 = prices[curr] + dp[curr][rod_length - lengths[curr]]
-
-            # Fetch the maximum revenue obtained without cutting the rod
-            if curr > 0:
-                revenue2 = dp[curr - 1][rod_length]
-
-            # store the result in the table
-            dp[curr][rod_length] = max(revenue1, revenue2)
-
-    # maximum revenue will be at the bottom-right corner.
-    return dp[lengthsCount - 1][n]
 
 
 # Driver code

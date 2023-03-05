@@ -1,24 +1,4 @@
-def coin_change(coins, total):
-    if total < 1:
-        return 0
-    return calculate_minimum_coins(coins, total)
 
-
-def calculate_minimum_coins(coins, rem):
-    # Helper function that calculates amount left to be calculated
-    # and tells what its value can be.
-    dp = [rem + 1] * (rem + 1)
-    dp[0] = 0
-
-    for i in range(1, rem + 1):
-        for c in coins:
-            if i - c >= 0:
-                dp[i] = min(dp[i], 1 + dp[i - c])
-
-    if dp[rem] != (rem + 1):
-        return dp[rem]
-    else:
-        return -1
 
 
 # Driver Code
