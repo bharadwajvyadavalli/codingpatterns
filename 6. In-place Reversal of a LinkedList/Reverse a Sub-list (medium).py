@@ -1,49 +1,9 @@
 '''
-Problem Statement 
-Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse the LinkedList from position ‘p’ to ‘q’.
 '''
 
 
 #mycode
-from __future__ import print_function
 
-
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next = next
-
-  def print_list(self):
-    temp = self
-    while temp is not None:
-      print(temp.value, end=" ")
-      temp = temp.next
-    print()
-
-
-def reverse_sub_list(head, p, q):
-  # TODO: Write your code here
-  before_slow, fast = head, head
-
-  while p-2 > 0:
-    before_slow = before_slow.next
-    p -= 1
-  while q-1> 0:
-    fast = fast.next
-    q -= 1
-  
-  after_fast = fast.next
-  former = after_fast
-  latter = before_slow.next
-  before_slow.next = fast
-
-  while latter!=after_fast:
-    temp=latter
-    latter=latter.next
-    temp.next=former
-    former=temp
-
-  return head
 
 
 def main():

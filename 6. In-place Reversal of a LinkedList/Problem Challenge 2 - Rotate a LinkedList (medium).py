@@ -1,49 +1,10 @@
 '''
-Problem Challenge 2
 
-Rotate a LinkedList (medium)
-
-Given the head of a Singly LinkedList and a number ‘k’, rotate the LinkedList to the right by ‘k’ nodes.
 '''
 
 
 #mycode
-from __future__ import print_function
 
-
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next = next
-
-  def print_list(self):
-    temp = self
-    while temp is not None:
-      print(temp.value, end=" ")
-      temp = temp.next
-    print()
-
-
-def rotate(head, rotations):
-  # TODO: Write your code here
-  last = head 
-  leng = 1
-  while last.next is not None:
-    last = last.next
-    leng += 1
-  
-  index = rotations%leng
-  i = 0
-  before_begin, begin = None, head
-  while i < index:
-    before_begin = begin
-    begin = begin.next
-    i += 1
-  
-  last.next = head
-  before_begin.next = None
-
-  return begin
 
 
 def main():

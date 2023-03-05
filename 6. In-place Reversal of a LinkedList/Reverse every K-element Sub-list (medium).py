@@ -1,57 +1,10 @@
 '''
-Problem Statement 
-Given the head of a LinkedList and a number ‘k’, reverse every ‘k’ sized sub-list starting from the head.
-
-If, in the end, you are left with a sub-list with less than ‘k’ elements, reverse it too.
 '''
 
 
 
 #mycode
-from __future__ import print_function
 
-
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next = next
-
-  def print_list(self):
-    temp = self
-    while temp is not None:
-      print(temp.value, end=" ")
-      temp = temp.next
-    print()
-
-
-def reverse_every_k_elements(head, k):
-  # TODO: Write your code here
-  
-  former, latter, last_last_node = None, head, head
-  i=0
-  while i<k and latter is not None:
-    temp = latter
-    latter = latter.next
-    temp.next = former
-    former = temp
-    i += 1
-  
-  head = temp
-  
-  while latter is not None:
-    former, latter, begin = None, latter, latter
-    i=0
-    while i<k and latter is not None:
-      temp = latter
-      latter = latter.next
-      temp.next = former
-      former = temp
-      i += 1
-    
-    last_last_node.next=temp
-    last_last_node=begin
-
-  return head
 
 
 def main():
