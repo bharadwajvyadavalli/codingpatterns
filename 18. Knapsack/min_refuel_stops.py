@@ -1,36 +1,7 @@
 import math
 
 
-def min_refuel_stops(target, start_fuel, stations):
-    n = len(stations)
-    # creating an array to store the maximum distances
-    dp = [[0] * (n + 1) for _ in range(n + 1)]
-    i = 0
-    # fill up the first column of the table with the start fuel.
-    while (i <= n):
-        dp[i][0] = start_fuel
-        i += 1
-    i = 1
-    # iterating over all the stations from i = 1 to n
-    while (i <= n):
-        j = 1
-        # checking fueling stops from j = 1 to j = i
-        while (j <= i):
-            # refuel at current station
-            if (dp[i - 1][j - 1] >= stations[i - 1][0]):
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - 1] + stations[i - 1][1])
-            # not refuel at current station
-            else:
-                dp[i][j] = dp[i - 1][j]
-            j += 1
-        i += 1
-    i = 0
-    # After visiting all the stations, find minimum `j`
-    while (i <= n):
-        if (dp[n][i] >= target):
-            return i
-        i += 1
-    return -1
+
 
 
 def main():
