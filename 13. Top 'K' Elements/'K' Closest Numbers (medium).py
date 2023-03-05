@@ -1,41 +1,11 @@
 '''
-Problem Statement 
-Given a sorted number array and two integers ‘K’ and ‘X’, find ‘K’ closest numbers to ‘X’ in the array. 
-Return the numbers in the sorted order. ‘X’ is not necessarily present in the array.
 
-Example 1:
-
-Input: [5, 6, 7, 8, 9], K = 3, X = 7
-Output: [6, 7, 8]
-Example 2:
-
-Input: [2, 4, 5, 6, 9], K = 3, X = 6
-Output: [4, 5, 6]
-Example 3:
-
-Input: [2, 4, 5, 6, 9], K = 3, X = 10
-Output: [5, 6, 9]
 '''
 
 #mycode
 from heapq import *
 
-def find_closest_elements(arr, K, X):
-  result = []
-  
-  # TODO: Write your code here
-  temp1, temp2 = [], []
-  for i in arr:
-    heappush(temp1,(abs(X-i),i))
 
-  i = K
-  while i>0:
-    heappush(temp2,heappop(temp1)[1])
-    i -= 1
-
-  while temp2:
-    result.append(heappop(temp2))
-  return result
 
 
 def main():

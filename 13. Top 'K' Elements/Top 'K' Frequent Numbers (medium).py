@@ -1,44 +1,11 @@
 '''
-Problem Statement 
-Given an unsorted array of numbers, find the top ‘K’ frequently occurring numbers in it.
 
-Example 1:
-
-Input: [1, 3, 5, 12, 11, 12, 11], K = 2
-Output: [12, 11]
-Explanation: Both '11' and '12' apeared twice.
-Example 2:
-
-Input: [5, 12, 11, 3, 11], K = 2
-Output: [11, 5] or [11, 12] or [11, 3]
-Explanation: Only '11' appeared twice, all other numbers appeared once.
 '''
 
 #mycode
 from heapq import *
 
-def find_k_frequent_numbers(nums, k):
-  topNumbers = []
-  result = []
-  # TODO: Write your code here
-  mapping = {}
-  for num in nums:
-    if num not in mapping:
-      mapping[num] = 1
-    else:
-      mapping[num] += 1
-  
-  for num, freq in mapping.items():
-    if len(result)<k:
-      heappush(result,(freq, num))
-    else:
-      if freq > result[0][0]:
-        heappop(result)
-        heappush(result,(freq, num))
-  
-  for i in range(len(result)-1,-1,-1):
-    topNumbers.append(result[i][1])
-  return topNumbers
+
 
 
 def main():

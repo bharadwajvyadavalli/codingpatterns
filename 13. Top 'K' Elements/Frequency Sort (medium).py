@@ -1,38 +1,12 @@
 '''
-Problem Statement 
-Given a string, sort it based on the decreasing frequency of its characters.
 
-Example 1:
-
-Input: "Programming"
-Output: "rrggmmPiano"
-Explanation: 'r', 'g', and 'm' appeared twice, so they need to appear before any other character.
-Example 2:
-
-Input: "abcbab"
-Output: "bbbaac"
-Explanation: 'b' appeared three times, 'a' appeared twice, and 'c' appeared only once.
 '''
 
 
 #mycode
 from heapq import *
 
-def sort_character_by_frequency(str):
-  # TODO: Write your code here
-  mapping= {}
-  for i in str:
-    mapping[i] = mapping.get(i,0) + 1
 
-  temp =[]
-  for i, freq in mapping.items():
-    heappush(temp,(-freq,i))
-  
-  result=""
-  while temp:
-    freq, i = heappop(temp)
-    result += i*(-freq)
-  return result
 
 
 def main():

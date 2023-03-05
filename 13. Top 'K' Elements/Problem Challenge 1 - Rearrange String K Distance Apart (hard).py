@@ -1,61 +1,11 @@
 '''
-Problem Challenge 1
-Rearrange String K Distance Apart (hard) 
-Given a string and a number ‘K’, find if the string can be rearranged such that the same characters are at least ‘K’ distance apart from each other.
 
-Example 1:
-
-Input: "mmpp", K=2
-Output: "mpmp" or "pmpm"
-Explanation: All same characters are 2 distance apart.
-
-Example 2:
-
-Input: "Programming", K=3
-Output: "rgmPrgmiano" or "gmringmrPoa" or "gmrPagimnor" and a few more
-Explanation: All same characters are 3 distance apart.
-
-Example 3:
-
-Input: "aab", K=2
-Output: "aba"
-Explanation: All same characters are 2 distance apart.
-
-Example 4:
-
-Input: "aappa", K=3
-Output: ""
-Explanation: We cannot find an arrangement of the string where any two 'a' are 3 distance apart.
 '''
 
 from heapq import *
 from collections import deque
 
-def reorganize_string(str, k):
-  # TODO: Write your code here
-  mapping = {}
 
-  for i in str:
-    mapping[i] = mapping.get(i,0) +1
-  
-  heap = []
-  for i, freq in mapping.items():
-    heappush(heap,(-freq,i))
-  
-  result =''
-  queue = deque()
-
-  while heap:
-    freq, i  = heappop(heap)
-    result += i
-    queue.append((freq+1,i))
-
-    if len(queue) >= k:
-      freq, i = queue.popleft()
-      if -freq > 0:
-        heappush(heap,(freq,i))
-
-  return result if len(result) == len(str) else ''
 
 def main():
   print("Reorganized string: " + reorganize_string("mmpp", 2))

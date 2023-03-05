@@ -1,24 +1,5 @@
 '''
-Problem Statement 
-Given a string, find if its letters can be rearranged in such a way that no two same characters ome next to each other.
 
-Example 1:
-
-Input: "aappp"
-Output: "papap"
-Explanation: In "papap", none of the repeating characters come next to each other.
-
-Example 2:
-
-Input: "Programming"
-Output: "rgmrgmPiano" or "gmringmrPoa" or "gmrPagimnor", etc.
-Explanation: None of the repeating characters come next to each other.
-
-Example 3:
-
-Input: "aapa"
-Output: ""
-Explanation: In all arrangements of "aapa", atleast two 'a' will come together e.g., "apaa", "paaa".
 '''
 
 
@@ -26,29 +7,7 @@ Explanation: In all arrangements of "aapa", atleast two 'a' will come together e
 from heapq import *
 
 
-def rearrange_string(str):
-  # TODO: Write your code here
-  mapping = {}
-  for i in str:
-    mapping[i] = mapping.get(i,0) +1
-  
-  heap=[]
-  for i, freq in mapping.items():
-    heappush(heap,(-freq,i))
-  
-  result =''
-  while heap:
-    most_freq, most_i = heappop(heap)
-    result += most_i
-    if -most_freq > 1:
-      heappush(heap,(most_freq+1,most_i)) 
-    if heap:
-      sec_freq, sec_i =heappop(heap)
-      if sec_i == most_i:
-        return ''
-      else:
-        heappush(heap,(sec_freq,sec_i))
-  return result
+
 
 
 def main():

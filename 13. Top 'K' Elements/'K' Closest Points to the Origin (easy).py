@@ -1,48 +1,9 @@
 '''
-Problem Statement 
-Given an array of points in the a 2D2D plane, find ‘K’ closest points to the origin.
 
-Example 1:
-
-Input: points = [[1,2],[1,3]], K = 1
-Output: [[1,2]]
-Explanation: The Euclidean distance between (1, 2) and the origin is sqrt(5).
-The Euclidean distance between (1, 3) and the origin is sqrt(10).
-Since sqrt(5) < sqrt(10), therefore (1, 2) is closer to the origin.
-Example 2:
-
-Input: point = [[1, 3], [3, 4], [2, -1]], K = 2
-Output: [[1, 3], [2, -1]]
 '''
 
-import math
-from heapq import *
 
-class Point:
 
-  def __init__(self, x, y):
-    self.x = x
-    self.y = y
-
-  def print_point(self):
-    print("[" + str(self.x) + ", " + str(self.y) + "] ", end='')
-    print(self.x **2+self.y **2 )
-  def __lt__(self, other):
-        
-        return (self.x **2+self.y **2 ) > (other.x **2+other.y **2)
-
-def find_closest_points(points, k):
-  result = []
-  # TODO: Write your code here
-  for point in points:
-    if len(result) <k:
-      heappush(result, point)
-    else:
-      if (point.x **2+point.y **2 ) < (result[0].x **2+result[0].y **2):
-        heappop(result)
-        heappush(result, point)
-  
-  return result
 
 
 def main():
