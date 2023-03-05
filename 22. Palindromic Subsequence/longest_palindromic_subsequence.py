@@ -1,24 +1,4 @@
-def longest_palindromic_subsequence(s):
-    # Initializing a lookup table of dimensions len(s) x len(s)
-    lookup_table = [[0 for x in range(len(s))] for x in range(len(s))]
 
-    # Every sequence with one element is a palindrome of length 1
-    for i in range(len(s)):
-        lookup_table[i][i] = 1
-
-    for start_index in reversed(range(len(s))):
-        for end_index in range(start_index + 1, len(s)):
-
-            # case 1: elements at the beginning and the end are the same
-            if s[start_index] == s[end_index]:
-                lookup_table[start_index][end_index] = 2 + lookup_table[start_index + 1][end_index - 1]
-
-            # case 2: skip one element either from the beginning or the end
-            else:
-                lookup_table[start_index][end_index] = max(lookup_table[start_index + 1][end_index],
-                                                           lookup_table[start_index][end_index - 1])
-
-    return lookup_table[0][len(s) - 1]
 
 
 # Driver code to test the above function

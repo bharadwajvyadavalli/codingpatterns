@@ -1,27 +1,4 @@
-def minimum_deletions(s):
-    length = len(s)
-    return length - longest_palindromic_subsequence(s)
 
-
-# Returns the LPS
-def longest_palindromic_subsequence(s):
-    # Initializing a lookup table of dimensions len(s) x len(s)
-    lookup_table = [[0 for x in range(len(s))] for x in range(len(s))]
-
-    # Every sequence with one element is a palindrome of length 1
-    for i in range(len(s)):
-        lookup_table[i][i] = 1
-
-    for start in reversed(range(len(s))):
-        for end in range(start + 1, len(s)):
-            if s[start] == s[end]:
-                lookup_table[start][end] = 2 + lookup_table[start + 1][end - 1]
-            else:
-                c1 = lookup_table[start][end - 1]
-                c2 = lookup_table[start + 1][end]
-                lookup_table[start][end] = max(c1, c2)
-
-    return lookup_table[0][len(s) - 1]
 
 
 # Driver code
