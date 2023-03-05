@@ -1,10 +1,5 @@
 '''
-Problem Challenge 2
 
-Right View of a Binary Tree (easy)
-
-Given a binary tree, return an array containing nodes in its right view. 
-The right view of a binary tree is the set of nodes visible when the tree is seen from the right side.
 '''
 
 
@@ -13,34 +8,7 @@ from __future__ import print_function
 from collections import deque
 
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left, self.right = None, None
 
-
-def tree_right_view(root):
-  result = []
-  # TODO: Write your code here
-  if not root:
-    return result
-
-  queue = deque()
-  queue.append(root)
-
-  while queue:
-    for i in range(len(queue)):
-
-      current = queue.popleft()
-      
-      if current.left:
-        queue.append(current.left)
-      if current.right:
-        queue.append(current.right)
-        
-    result.append(current)
-
-  return result
 
 def main():
   root = TreeNode(12)

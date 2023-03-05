@@ -1,38 +1,9 @@
 '''
-Problem Statement 
-Given a binary tree, populate an array to represent its level-by-level traversal in reverse order, i.e., the lowest level comes first. 
-You should populate the values of all nodes in each level from left to right in separate sub-arrays.
+
 '''
 
 #mycode
-from collections import deque
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left, self.right = None, None
-
-def traverse(root):
-  result = deque()
-  # TODO: Write your code here
-  if not root:
-    return result
-  
-  queue = deque()
-  queue.append(root)
-
-  while queue:
-    current = []
-    for i in range(len(queue)):
-      current_node = queue.popleft()
-      current.append(current_node.val)
-      if current_node.left:
-        queue.append(current_node.left)
-      if current_node.right:
-        queue.append(current_node.right)
-    
-    result.appendleft(current)
-  return result
 
 def main():
   root = TreeNode(12)

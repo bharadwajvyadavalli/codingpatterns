@@ -1,38 +1,11 @@
 '''
-Problem Statement 
-Given a binary tree, populate an array to represent its level-by-level traversal. 
-You should populate the values of all nodes of each level from left to right in separate sub-arrays.
+
 '''
 
 #answer
 from collections import deque
 
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left, self.right = None, None
-
-
-def traverse(root):
-  result = []
-  # TODO: Write your code here
-  if not root:
-    return result
-  stack = [root]
-  value=[[root.val]]
-  while stack:
-    current=[]
-    current_val=[]
-    for i in stack:
-      current_val.append(i.val)
-      if i.left:
-        current.append(i.left)
-      if i.right:
-        current.append(i.right)
-    result.append(current_val)
-    stack = current
-  return result
 
 
 def main():

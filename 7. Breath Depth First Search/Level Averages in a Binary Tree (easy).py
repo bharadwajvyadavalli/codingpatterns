@@ -1,39 +1,9 @@
 '''
-Problem Statement 
-Given a binary tree, populate an array to represent the averages of all of its levels.
+
 '''
 
 #mycode
-from collections import deque
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left, self.right = None, None
-
-
-def find_level_averages(root):
-  result = []
-  # TODO: Write your code here
-  if not root:
-    return result
-  queue = deque()
-  queue.append(root)
-
-  while queue:
-    value = 0
-    n = len(queue)
-    for i in range(n):
-      current = queue.popleft()
-      value += current.val
-
-      if current.left:
-        queue.append(current.left)
-      if current.right:
-        queue.append(current.right) 
-    result.append(value/n) 
-
-  return result
 
 
 def main():

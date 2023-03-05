@@ -1,62 +1,10 @@
 '''
-Problem Statement 
-Given a binary tree, populate an array to represent its zigzag level order traversal. 
-You should populate the values of all nodes of the first level from left to right, 
-then right to left for the next level and keep alternating in the same manner for the following levels.
+
 '''
 
 
 #mycode
-from collections import deque
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left, self.right = None, None
-
-def traverse(root):
-  result = []
-  # TODO: Write your code here
-  if not root:
-    return result
-  
-  queue = deque()
-  queue.append(root)
-
-  flag = False 
-  while queue:
-    current = []
-
-    if flag:
-      temp = deque()
-      for i in range(len(queue)):
-        current_node=queue.popleft()
-        current.append(current_node.val)
-
-        if current_node.right:
-          temp.appendleft(current_node.right)
-        if current_node.left:
-          temp.appendleft(current_node.left)
-        
-      queue.extend(temp)
-      flag = False
-
-    else:
-      for i in range(len(queue)):
-        current_node=queue.popleft()
-        current.append(current_node.val)
-
-        if current_node.right:
-          queue.append(current_node.right)
-        if current_node.left:
-          queue.append(current_node.left)
-      flag = True
-
-    result.append(current)
-
-
-
-  return result
 
 
 def main():
