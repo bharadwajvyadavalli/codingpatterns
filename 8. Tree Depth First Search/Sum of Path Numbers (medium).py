@@ -1,33 +1,8 @@
 '''
-Problem Statement 
-Given a binary tree where each node can only have a digit (0-9) value, 
-each root-to-leaf path will represent a number. Find the total sum of all the numbers represented by all paths.
+
 '''
 
 #mycode
-class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
-
-
-def find_sum_of_path_numbers(root):
-  # TODO: Write your code here
-  return find_root_to_leaf_path_numbers(root, 0)
-
-def find_root_to_leaf_path_numbers(currentNode, currentSum):
-  if not currentNode:
-    return 0
-  
-  currentSum = currentSum*10 + currentNode.val
-
-  if currentNode.left is None and currentNode.right is None:
-    return currentSum
-  else:
-    return find_root_to_leaf_path_numbers(currentNode.left, currentSum) + find_root_to_leaf_path_numbers(currentNode.right, currentSum)
-
-
 
 
 def main():

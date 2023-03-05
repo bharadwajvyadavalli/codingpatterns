@@ -1,39 +1,10 @@
 '''
-Problem Statement 
-Given a binary tree and a number ‘S’, 
-find all paths from root-to-leaf such that the sum of all the node values of each path equals ‘S’.
+
 '''
 
 
 #mycode
-class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
 
-
-def find_paths(root, sum):
-  allPaths = []
-  # TODO: Write your code here
-
-  find_current_paths(root, sum,[], allPaths)
-  return allPaths
-
-def find_current_paths(currentNode, sum, currentPath, allPaths):
-  if not currentNode:
-    return
-  
-  currentPath.append(currentNode.val)
-  
-
-  if currentNode.val == sum and currentNode.left is None and currentNode.right is None:
-    allPaths.append(list(currentPath))
-  else:
-    find_current_paths(currentNode.left, sum - currentNode.val, currentPath, allPaths)
-    find_current_paths(currentNode.right, sum - currentNode.val, currentPath, allPaths)
-  
-  del currentPath[-1]
 
 
 def main():

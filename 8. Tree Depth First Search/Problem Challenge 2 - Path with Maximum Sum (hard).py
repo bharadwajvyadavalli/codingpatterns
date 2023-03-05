@@ -1,40 +1,12 @@
 '''
-Problem Challenge 2
 
-Path with Maximum Sum (hard)
-
-Find the path with the maximum sum in a given binary tree. Write a function that returns the maximum sum. 
-A path can be defined as a sequence of nodes between any two nodes and doesn’t necessarily pass through the root.
 '''
 
 #mycode
 import math
 
 
-class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
 
-
-class MaximumPathSum:
-  def find_maximum_path_sum(self, root):
-    # TODO: Write your code here
-    self.globalMaximum = -math.inf
-    self.find_maximum_path_sum_recursive(root)
-    return self.globalMaximum
-  
-  def find_maximum_path_sum_recursive(self, currentNode):
-    if not currentNode:
-      return 0
-    
-    maximumLeft = max(0, self.find_maximum_path_sum_recursive(currentNode.left))
-    maximumRight = max(0, self.find_maximum_path_sum_recursive(currentNode.right))
-
-    self.globalMaximum = max(self.globalMaximum, maximumLeft + currentNode.val + maximumRight)
-
-    return max(maximumLeft, maximumRight) + currentNode.val
 
 
 def main():

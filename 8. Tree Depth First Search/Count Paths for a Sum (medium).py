@@ -1,30 +1,7 @@
 '''
-Problem Statement 
-Given a binary tree and a number ‘S’, 
-find all paths in the tree such that the sum of all the node values of each path equals ‘S’. 
-Please note that the paths can start or end at any node but all paths must follow direction from parent to child (top to bottom).
 '''
 
 #mycode
-class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
-
-
-def count_paths(root, S):
-  # TODO: Write your code here
-  return find_current_count(root,S,0)
-
-def find_current_count(currentNode, S, count):
-  if not currentNode:
-    return 0 
-  
-  if currentNode.val == S:
-    count += 1
-  
-  return count + find_current_count(currentNode.left, S, count) + find_current_count(currentNode.right, S, count) + find_current_count(currentNode.left, S - currentNode.val, count) + find_current_count(currentNode.right, S - currentNode.val, count)
 
   
 

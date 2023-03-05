@@ -1,35 +1,7 @@
 '''
-Problem Statement 
-Given a binary tree and a number sequence, find if the sequence is present as a root-to-leaf path in the given tree.
 '''
 
 #mycode
-class TreeNode:
-  def __init__(self, val, left=None, right=None):
-    self.val = val
-    self.left = left
-    self.right = right
-
-
-def find_path(root, sequence):
-  # TODO: Write your code here
-  
-  return find_current_path(root, sequence)
-
-def find_current_path(currentNode, sequence):
-  
-  if not currentNode:
-    return False
-
-  if currentNode.val != sequence[0]:
-    return False
-  else:
-    if currentNode.left is None and currentNode.right is None:
-      return True
-    else:
-      del sequence[0]
-      return find_current_path(currentNode.left, sequence) or find_current_path(currentNode.right, sequence)
-  
 
 
 
