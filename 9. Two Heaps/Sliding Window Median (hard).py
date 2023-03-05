@@ -1,87 +1,12 @@
 '''
-Problem Statement 
-Given an array of numbers and a number ‘k’, find the median of all the ‘k’ sized sub-arrays (or windows) of the array.
 
-Example 1:
-
-Input: nums=[1, 2, -1, 3, 5], k = 2
-Output: [1.5, 0.5, 1.0, 4.0]
-Explanation: Lets consider all windows of size ‘2’:
-
-[1, 2, -1, 3, 5] -> median is 1.5
-[1, 2, -1, 3, 5] -> median is 0.5
-[1, 2, -1, 3, 5] -> median is 1.0
-[1, 2, -1, 3, 5] -> median is 4.0
-
-Example 2:
-
-Input: nums=[1, 2, -1, 3, 5], k = 3
-Output: [1.0, 2.0, 3.0]
-Explanation: Lets consider all windows of size ‘3’:
-
-[1, 2, -1, 3, 5] -> median is 1.0
-[1, 2, -1, 3, 5] -> median is 2.0
-[1, 2, -1, 3, 5] -> median is 3.0
 '''
 
 
 #mycode
 from heapq import *
 
-class SlidingWindowMedian:
 
-
-  def find_sliding_window_median(self, nums, k):
-
-    def rebalance(minHeap, maxHeap):
-      if len(maxHeap) > len(minHeap) + 1:
-        heappush(minHeap, -heappop(maxHeap))
-      elif len(maxHeap) < len(minHeap):
-        heappush(maxHeap, -heappop(minHeap))
-  
-    def remove(value, heap):
-      index = heap.index(value)
-
-      if len(heap) == 1:
-        heap = []
-      elif index == len(heap)-1:
-        heap = heap[:len(heap)-1]
-      else:
-        heap = heap[:index] + heap[index+1:]
-      return heap
-
-    result = []
-    # TODO: Write your code here
-    result = [0.0] * (len(nums) - k + 1)
-    minHeap, maxHeap = [], []
-
-    for i in range(len(nums)):
-      if not maxHeap or nums[i] <= -maxHeap[0]:
-        heappush(maxHeap,-nums[i])
-      else:
-        heappush(minHeap,nums[i]) 
-
-      rebalance(minHeap, maxHeap)
-
-
-      #print(minHeap, maxHeap)
-
-      if i-k+1 >= 0:
-        if len(maxHeap) == len(minHeap):
-          result[i-k+1] = (minHeap[0]-maxHeap[0]) / 2
-        else:
-          result[i-k+1] = -maxHeap[0]
-
-        removeElement = nums[i-k+1]
-
-        if removeElement >= minHeap[0]:
-          minHeap = remove(removeElement, minHeap) 
-        else:
-          maxHeap = remove(-removeElement, maxHeap)
-        
-      rebalance(minHeap, maxHeap)
-
-    return result
 
 def main():
 
