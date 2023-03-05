@@ -1,18 +1,5 @@
 '''
-Problem Statement 
-Given a set of positive numbers, find if we can partition it into two subsets such that the sum of elements in both subsets is equal.
 
-Example 1:
-
-Input: {1, 2, 3, 4}
-Output: True
-Explanation: The given set can be partitioned into two subsets with equal sum: {1, 4} & {2, 3}
-
-Example 2:
-
-Input: {1, 1, 3, 4, 7}
-Output: True
-Explanation: The given set can be partitioned into two subsets with equal sum: {1, 3, 4} & {1, 7}
 '''
 
 
@@ -54,28 +41,7 @@ main()
 
 
 #my bottom-up code
-def can_partition(num):
-  # TODO: Write your code here
-  s = sum(num)
-  if s %2 == 1:
-    return False
-  dp = [[False for x in range(int(s/2) + 1)] for y in range(len(num))]
-  
-  for i in range(len(num)):
-    dp[i][0] = True
-  
-  for i in range(0, int(s/2) + 1):
-    if num[0] == i:
-      dp[0][i] = True
 
-  for i in range(1, len(num)):
-    for n in range(1, int(s/2) + 1): 
-      if num[i] <= n:
-        w1 = dp[i-1][n-num[i]]
-      w2 = dp[i-1][n]
-      dp[i][n] = w2 or w1
-  
-  return dp[len(num)-1][int(s/2)]
 
   
 
