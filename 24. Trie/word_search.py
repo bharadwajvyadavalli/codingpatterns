@@ -1,48 +1,7 @@
 from trie_implementation import Trie
 
 
-def print_grid(grid):
-    for i in grid:
-        output = '   '.join(i)
-        print("\t", output)
 
-
-def find_strings(grid, words):
-    trie_for_words = Trie()
-    result = []
-    # Inserting strings in the dictionary
-    for word in words:
-        trie_for_words.insert(word)
-    # Calling dfs for all the cells in the grid
-    for j in range(len(grid)):
-        for i in range(len(grid[0])):
-            dfs(trie_for_words, trie_for_words.root, grid, j, i, result)
-    return result
-
-
-def dfs(words_trie, node, grid, row, col, result, word=''):
-    # Checking if we found the string
-    if node.is_string:
-        result.append(word)
-        node.is_string = False
-        # remove the characters in the word that are not shared
-        words_trie.remove_characters(word)
-
-    if 0 <= row < len(grid) and 0 <= col < len(grid[0]):
-        char = grid[row][col]
-        # Getting child node of current node from Trie
-        child = node.children.get(char)
-        # if child node exists in Trie
-        if child is not None:
-            word += char
-            # Marking it as visited before exploration
-            grid[row][col] = None
-            # Recursively calling DFS to search in all four directions
-            for row_offset, col_offset in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-                dfs(words_trie, child, grid, row + row_offset, col + col_offset, result, word)
-
-            # Restoring state after exploration
-            grid[row][col] = char
 
 
 # Driver Code

@@ -1,26 +1,7 @@
 from trie_implementation import Trie
 
 
-def replace_words(sentence, dictionary):
-    trie = Trie()
-    # iterate over the dictionary words, and
-    # insert them as prefixes into the trie
-    for prefix in dictionary:
-        trie.insert(prefix)
-    # split and assign each word from the sentence to new_list
-    # this new_list is intended to return the final sentence
-    # after all possible replacements have been made
-    new_list = sentence.split()
 
-    # iterate over all the words in the sentence
-    for i in range(len(new_list)):
-        # replace each word in the new_list with the
-        # smallest word from dictionary
-        new_list[i] = trie.replace(new_list[i])
-
-    # after replacing each word with the matching dictionary word,
-    # join them with a space in between them to reconstruct the sentence
-    return " ".join(new_list)
 
 
 # driver code
