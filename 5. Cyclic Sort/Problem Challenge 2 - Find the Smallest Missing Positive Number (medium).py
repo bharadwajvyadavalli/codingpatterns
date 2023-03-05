@@ -1,43 +1,9 @@
 '''
-Problem Challenge 2
-Find the Smallest Missing Positive Number (medium)
 
-Given an unsorted array containing numbers, find the smallest missing positive number in it.
-
-Example 1:
-
-Input: [-3, 1, 5, 4, 2]
-Output: 3
-Explanation: The smallest missing positive number is '3'
-
-Example 2:
-
-Input: [3, -2, 0, 1, 2]
-Output: 4
-
-Example 3:
-
-Input: [3, 2, 5, 1]
-Output: 4
 '''
 
 #mycode
-def find_first_missing_positive(nums):
-  # TODO: Write your code here
-  i=0
-  while i < len(nums):
-    j=nums[i]-1
-    if j >= 0 and j < len(nums):
-      if nums[i] != nums[j]:
-        nums[i], nums[j] = nums[j], nums[i]
-      else:
-        i+=1
-    else:
-      i+=1
-    
-  for i in range(len(nums)):
-    if nums[i]-1 != i:
-      return i+1
+
 
 
 #answer
