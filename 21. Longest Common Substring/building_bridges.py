@@ -1,31 +1,5 @@
 # Function to find the maximum number of bridges that can be built
-def max_bridges_count(north, south):
-    n = len(north)
-    # Making pairs by joining the north and south array
-    pairs = list(zip(north, south))
-    # sorting the pairs according to the southern values
-    pairs.sort(key=lambda x: (x[1], x[0]))
-    # Since southern values are sorted, we will extract the northern values
-    memo_north = [pairs[i][0] for i in range(n)]
-    size = len(memo_north)
 
-    # 2-D table for tabulation of size (n x n)
-    dp = [[0 for j in range(n + 1)] for i in range(n + 1)]
-
-    for i in range(0, size + 1):
-        dp[size][i] = 0
-
-    for curr in range(size - 1, -1, -1):
-        for prev in range(i - 1, -2, -1):
-            length = dp[curr + 1][prev + 1]
-            # if previous value is negative or is less than the
-            # current value, then we will include it
-            if prev < 0 or memo_north[prev] < memo_north[curr]:
-                length = max(length, 1 + dp[curr + 1][curr + 1])
-
-            dp[curr][prev + 1] = length
-
-    return dp[curr][prev + 1]
 
 
 # Driver code

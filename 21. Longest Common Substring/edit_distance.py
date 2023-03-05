@@ -1,39 +1,4 @@
-def min_edit_dist_iterative(str1, str2, m, n):
-    # Create a table to store results of sub-problems
-    lookup_table = [[-1 for i in range(n + 1)] for i in range(m + 1)]
 
-    # Fill lookup_table [][] in bottom up manner
-    for i in range(m + 1):
-        # If second string is empty, only option is to
-        # remove all characters of first string
-        lookup_table[i][0] = i  # Min. operations = i
-
-    for j in range(n + 1):
-        # If first string is empty, only option is to
-        # insert all characters of second string
-        lookup_table[0][j] = j  # Min. operations = j
-
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-
-            # If last characters are same, ignore last char
-            # and recur for remaining string
-            if str1[i - 1] == str2[j - 1]:
-                lookup_table[i][j] = lookup_table[i - 1][j - 1]
-
-            # If the last character is different, consider all
-            # possibilities and find the minimum
-            # adding '1' because every operation has cost of '1'
-            else:
-                lookup_table[i][j] = 1 + min(lookup_table[i][j - 1],  # Insert
-                                             lookup_table[i - 1][j],  # Remove
-                                             lookup_table[i - 1][j - 1])  # Replace
-
-    return lookup_table[m][n]
-
-
-def min_edit_dist(str1, str2):
-    return min_edit_dist_iterative(str1, str2, len(str1), len(str2))
 
 
 # Driver code to test the above function

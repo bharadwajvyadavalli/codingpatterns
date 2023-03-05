@@ -1,28 +1,4 @@
-def lbs_length(nums):
-    n = len(nums)
-    lis_forward = [1] * n
-    lis_backward = [1] * n
-    result = 1
 
-    # Populating the lis_forward array
-    for i in range(n):
-        for j in range(i):
-            if (nums[i] > nums[j] and lis_forward[i] < 1 + lis_forward[j]):
-                lis_forward[i] = 1 + lis_forward[j]
-
-    # Populating the lis_backward array
-    for i in range(n - 1, -1, -1):
-        for j in range(i + 1, n, 1):
-            if (nums[i] > nums[j] and lis_backward[i] < 1 + lis_backward[j]):
-                lis_backward[i] = 1 + lis_backward[j]
-
-    # Calculating the length of the bitonic subsequence at every index and
-    # selecting the maximum one
-    for i in range(n):
-        length = lis_forward[i] + lis_backward[i] - 1
-        result = max(result, length)
-
-    return result
 
 
 # Driver code

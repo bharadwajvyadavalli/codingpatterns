@@ -1,41 +1,4 @@
-def LAS(nums):
-    n = len(nums)
-    if n == 0:
-        return 0
 
-    # initialize dp with 1s as any sequence of length one is always the LAS
-    dp = [[1 for _ in range(n)] for _ in range(2)]
-
-    # iterate over all elements of nums
-    for current in range(1, n):
-        previous = current - 1;
-
-        # if the current element is greater than the previous element
-        if nums[current] > nums[previous]:
-            # current element can contribute to an ascending ordering
-            # the ascending dp row value is updated by adding 1 to the length of the
-            # longest descending subsequence till previous index
-            dp[0][current] = 1 + dp[1][previous]
-            # length of the longest descending subsequence is carried forward as it is
-            dp[1][current] = dp[1][previous]
-
-        # if the current element is less than the previous element
-        elif nums[current] < nums[previous]:
-            # current element can contribute to a descending ordering
-            # the descending dp row value is updated by adding 1 to the length of the
-            # longest ascending subsequence till previous index
-            dp[1][current] = 1 + dp[0][previous]
-            # length of the longest ascending subsequence is carried forward as it is
-            dp[0][current] = dp[0][previous]
-
-        # if the current and previous elements are equal
-        else:
-            # carry forward the previous values
-            dp[1][current] = dp[1][previous]
-            dp[0][current] = dp[0][previous]
-
-    # return maximum of the two final values
-    return max(dp[1][n - 1], dp[0][n - 1])
 
 
 # Driver code

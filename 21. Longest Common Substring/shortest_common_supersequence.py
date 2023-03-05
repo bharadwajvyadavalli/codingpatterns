@@ -1,25 +1,4 @@
-def shortest_common_supersequence(str1, str2):
-    # lookup table of size (m+1)*(n+1)
-    lookup_table = [[0 for x in range(len(str2) + 1)] for x in range(len(str1) + 1)]
 
-    # filling the additional row and column with constants
-    for i in range(len(str1) + 1):
-        lookup_table[i][0] = i
-
-    for j in range(len(str2) + 1):
-        lookup_table[0][j] = j
-
-    # iterate through both the strings
-    for i1 in range(1, len(str1) + 1):
-        for i2 in range(1, len(str2) + 1):
-            # if the characters match or not
-            if str1[i1 - 1] == str2[i2 - 1]:
-                lookup_table[i1][i2] = 1 + lookup_table[i1 - 1][i2 - 1]
-            else:
-                lookup_table[i1][i2] = 1 + min(lookup_table[i1 - 1][i2], lookup_table[i1][i2 - 1])
-
-    # return the last value of the lookup table
-    return lookup_table[len(str1)][len(str2)]
 
 
 # driver code

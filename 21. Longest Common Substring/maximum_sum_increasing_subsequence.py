@@ -1,17 +1,4 @@
-def MSIS_length(nums):
-    size = len(nums)
-    # we created a table here
-    dp = [[0]*(size+1) for i in range(size+1)]
 
-    for curr in range(size-1, -1, -1):
-        for prev in range(curr-1, -2, -1):
-            length = dp[curr+1][prev+1]
-            # if 'prev' is negative or previous value is less than the next value
-            # we will take it
-            if prev < 0 or nums[prev] < nums[curr]:
-                length = max(length, nums[curr]+dp[curr+1][curr+1])
-            dp[curr][prev+1] = length
-    return dp[0][0]
 
 
 # driver code

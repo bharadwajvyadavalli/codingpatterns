@@ -1,34 +1,4 @@
-def is_interleaving(s1, s2, s3):
-    # For the empty pattern, we have one matching
-    if len(s1) + len(s2) != len(s3):
-        return False
 
-    # Create a table with an extra row and column to separate the base cases.
-    lookup_table = [[False for i in range(len(s2) + 1)] for i in range(len(s1) + 1)]
-
-    for s1_index in range(len(s1) + 1):
-        for s2_index in range(len(s2) + 1):
-
-            # If 's1' and 's2' are empty, then 's3' must have been empty too.
-            if s1_index == 0 and s2_index == 0:
-                lookup_table[s1_index][s2_index] = True
-            # Checking the interleaving with 's2' only
-            elif s1_index == 0 and s2[s2_index - 1] == s3[s1_index + s2_index - 1]:
-                lookup_table[s1_index][s2_index] = lookup_table[s1_index][s2_index - 1]
-            # Checking the interleaving with 's1' only
-            elif s2_index == 0 and s1[s1_index - 1] == s3[s1_index + s2_index - 1]:
-                lookup_table[s1_index][s2_index] = lookup_table[s1_index - 1][s2_index]
-            else:
-                # If the letter of 's1' and 's3' match, we take whatever is matched till s1_index-1
-                if s1_index > 0 and s1[s1_index - 1] == s3[s1_index + s2_index - 1]:
-                    lookup_table[s1_index][s2_index] = lookup_table[s1_index - 1][s2_index]
-
-                # If the letter of 's2' and 's3' match, we take whatever is matched till s2_index-1 too
-                # note the '|=', this is required when we have common letters
-                if s2_index > 0 and s2[s2_index - 1] == s3[s1_index + s2_index - 1]:
-                    lookup_table[s1_index][s2_index] |= lookup_table[s1_index][s2_index - 1]
-
-    return lookup_table[len(s1)][len(s2)]
 
 
 # Driver code:

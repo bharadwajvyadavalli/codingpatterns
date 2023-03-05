@@ -1,33 +1,4 @@
-def word_break(s, word_dict):
-    # Initializing a table of size s.length + 1
-    dp_solutions = [[]] * (len(s) + 1)
 
-    # Setting base case
-    dp_solutions[0] = [""]
-
-    # For each substring in the input string, repeat the process.
-    for i in range(1, len(s) + 1):
-
-        # An array to store the results of the current substring being checked.
-        temp = []
-
-        # Iterate over the current substring and break it down into all possible prefixes.
-        for j in range(0, i):
-            prefix = s[j:i]
-
-            # Check if the current prefix exists in word_dict. If it does, we know that it is a valid word
-            # and can be used as part of the solution.
-            if prefix in word_dict:
-
-                # Check if any part of the current substring already exists in the dp_solutions array.
-                for substrings in dp_solutions[j]:
-                    # Merge the prefix with the already calculated results
-                    temp.append((substrings + " " + prefix).strip())
-
-        dp_solutions[i] = temp
-
-    # Returning all the sentences formed using a complete string s.
-    return dp_solutions[len(s)]
 
 
 # Driver Code

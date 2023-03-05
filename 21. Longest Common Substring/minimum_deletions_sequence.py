@@ -1,19 +1,4 @@
-def min_deletions(nums):
-    size = len(nums)
-    # we created a table here
-    dp = [[0]*(size+1) for i in range(size+1)]
 
-    for curr in range(size-1, -1, -1):
-        for prev in range(curr-1, -2, -1):
-            length = dp[curr+1][prev+1]
-            # if 'prev' is negative or previous value is less than the next value
-            # we will take it
-            if prev < 0 or nums[prev] < nums[curr]:
-                length = max(length, 1+dp[curr+1][curr+1])
-            dp[curr][prev+1] = length
-    # subtract length of longest increasing subsequence from total length
-    minimum_deletions = size - dp[0][0]
-    return minimum_deletions
 
 # driver code
 def main():
