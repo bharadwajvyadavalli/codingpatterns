@@ -1,27 +1,5 @@
 # Scoring options are 1, 2, and 4
-def scoring_options(n):
-    # Initializing our solution array
-    dp = [0] * (n + 1)
 
-    # Each array index holds the number of ways to
-    # reach a score equal to the index
-    dp[0] = 1
-
-    # Variables to store scores
-    s1 = s2 = s4 = 0
-
-    # Iteratively calculate the number of ways to reach a
-    # score and store it into the solutions' array
-    for r in range(1, n + 1):
-        # Return 0 if index is less than 0, otherwise
-        # set to array value
-        s1 = 0 if r - 1 < 0 else dp[r - 1]
-        s2 = 0 if r - 2 < 0 else dp[r - 2]
-        s4 = 0 if r - 4 < 0 else dp[r - 4]
-
-        # Using our recurrence relation to calculate new answers
-        dp[r] = s1 + s2 + s4
-    return dp[n]
 
 
 def main():

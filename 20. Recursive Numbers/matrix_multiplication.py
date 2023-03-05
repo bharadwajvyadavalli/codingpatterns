@@ -1,20 +1,3 @@
-import math
-
-
-def min_multiplications(dims):
-    # Table for tabulation
-    dp = [[0 for _ in range(len(dims))] for _ in range(len(dims))]
-
-    # Iterating to fill table
-    for l in range(2, len(dims)):
-        for i in range(1, len(dims) - l + 1):
-            j = i + l - 1
-            dp[i][j] = math.inf
-            for k in range(i, j):
-                temp = dp[i][k] + dp[k + 1][j] + dims[i - 1] * dims[k] * dims[j]
-                if temp < dp[i][j]:
-                    dp[i][j] = temp  # Storing the minimum value
-    return dp[1][-1]
 
 
 # Driver code

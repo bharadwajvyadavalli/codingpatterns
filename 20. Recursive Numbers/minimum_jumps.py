@@ -1,24 +1,4 @@
-import math
 
-
-def find_min_jumps(nums):
-    n = len(nums)
-    # Initializing the lookup table of nums length
-    lookup = [math.inf] * (n)
-    # Setting the 0th index to 0
-    lookup[0] = 0
-
-    # Outer loop traversing the whole array
-    for i in range(1, n):
-        # Inner loop traversing from 0 to the ith index
-        for j in range(i):
-            # If the value is not stored in the table and index i is
-            # less than equal to the value at jth index + j index
-            if ((i <= (nums[j] + j)) and (lookup[j] != math.inf)):
-                lookup[i] = min(lookup[i], lookup[j] + 1)
-                break
-
-    return lookup[n - 1]
 
 
 # Driver code

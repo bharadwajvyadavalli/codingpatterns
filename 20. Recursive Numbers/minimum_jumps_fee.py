@@ -1,20 +1,4 @@
-def min_fee(fee, n):
-    # Create a lookup array
-    lookup_array = [0 for x in range(n + 1)]
 
-    # Add the initial values to the array
-    lookup_array[0] = 0
-    lookup_array[1] = fee[0]
-    lookup_array[2] = fee[0]
-
-    for i in range(3, n + 1):
-        # Fill up the table by finding the minimum of the previous three values
-        one_step = fee[i - 1] + lookup_array[i - 1]
-        two_step = fee[i - 2] + lookup_array[i - 2]
-        three_step = fee[i - 3] + lookup_array[i - 3]
-        lookup_array[i] = min(one_step, two_step, three_step)
-
-    return lookup_array[n]
 
 
 # Driver code
