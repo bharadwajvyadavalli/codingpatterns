@@ -1,37 +1,9 @@
 '''
-Problem Statement 
-Given a set of numbers that might contain duplicates, find all of its distinct subsets.
 
-Example 1:
-
-Input: [1, 3, 3]
-Output: [], [1], [3], [1,3], [3,3], [1,3,3]
-
-Example 2:
-
-Input: [1, 5, 3, 3]
-Output: [], [1], [5], [3], [1,5], [1,3], [5,3], [1,5,3], [3,3], [1,3,3], [3,3,5], [1,5,3,3] 
 '''
 
 #mycode
-def find_subsets(nums):
-  subsets = []
-  # TODO: Write your code here
-  subsets.append([])
 
-  start, end = 0, 0
-  for i in range(len(nums)):
-    start = 0
-    if i>0 and nums[i] == nums[i-1]:
-      start = end 
-    end = len(subsets) 
-
-    for j in range(start, end):
-      set = subsets[j].copy()
-      set.append(nums[i])
-      subsets.append(set)
-
-  return subsets
 
 
 def main():

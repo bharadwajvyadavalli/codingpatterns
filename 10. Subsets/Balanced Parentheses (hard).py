@@ -1,44 +1,11 @@
 '''
-Problem Statement 
-For a given number ‘N’, write a function to generate all combination of ‘N’ pairs of balanced parentheses.
 
-Example 1:
-
-Input: N=2
-Output: (()), ()()
-
-Example 2:
-
-Input: N=3
-Output: ((())), (()()), (())(), ()(()), ()()()
 '''
 
 #mycode
 from collections import deque
 
-class ParenthesesString:
-  def __init__(self, str, openCount, closeCount):
-    self.str = str
-    self.openCount = openCount
-    self.closeCount = closeCount
 
-def generate_valid_parentheses(num):
-  result = []
-  # TODO: Write your code here
-  queue = deque()
-  queue.append(ParenthesesString('',0,0))
-
-  while queue:
-    ps = queue.popleft()
-
-    if ps.openCount == num and ps.closeCount == num:
-      result.append(ps.str)
-    else:
-      if ps.openCount > ps.closeCount:
-        queue.append(ParenthesesString(ps.str+')',ps.openCount,ps.closeCount+1)) 
-      if ps.openCount < num:   
-        queue.append(ParenthesesString(ps.str+'(',ps.openCount+1,ps.closeCount)) 
-  return result
 
 
 def main():

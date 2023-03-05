@@ -1,46 +1,9 @@
 '''
-Problem Challenge 1
 
-Evaluate Expression (hard)
-
-Given an expression containing digits and operations (+, -, *), 
-find all possible ways in which the expression can be evaluated by grouping the numbers and operators using parentheses.
-
-Example 1:
-
-Input: "1+2*3"
-Output: 7, 9
-Explanation: 1+(2*3) => 7 and (1+2)*3 => 9
-
-Example 2:
-
-Input: "2*3-4-5"
-Output: 8, -12, 7, -7, -3 
-Explanation: 2*(3-(4-5)) => 8, 2*(3-4-5) => -12, 2*3-(4-5) => 7, 2*(3-4)-5 => -7, (2*3)-4-5 => -3
 '''
 
 #mycode
-def diff_ways_to_evaluate_expression(input):
-  result = []
-  # TODO: Write your code here
 
-  if '+' not in input and '-' not in input and '*' not in input:
-    result.append(input)
-  else:
-    for i in range(len(input)):
-      if not input[i].isdigit():
-        left = diff_ways_to_evaluate_expression(input[0:i])
-        right = diff_ways_to_evaluate_expression(input[i+1:])
-
-        for j in left:
-          for k in right:
-            if input[i] == '+':
-              result.append(int(j)+int(k))
-            if input[i] == '*':
-              result.append(int(j)*int(k))
-            if input[i] == '-':
-              result.append(int(j)-int(k))
-  return result
 
 
 def main():

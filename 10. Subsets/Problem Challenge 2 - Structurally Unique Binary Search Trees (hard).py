@@ -1,53 +1,9 @@
 '''
-Problem Challenge 2
 
-Structurally Unique Binary Search Trees (hard)
-
-Given a number ‘n’, write a function to return all structurally unique Binary Search Trees (BST) that can store values 1 to ‘n’?
-
-Example 1:
-
-Input: 2
-Output: List containing root nodes of all structurally unique BSTs.
-Explanation: Here are the 2 structurally unique BSTs storing all numbers from 1 to 2:
-
-Example 2:
-
-Input: 3
-Output: List containing root nodes of all structurally unique BSTs.
-Explanation: Here are the 5 structurally unique BSTs storing all numbers from 1 to 3:
 '''
 
 
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left = None
-    self.right = None
 
-def find_unique_trees(n):
-  
-  # TODO: Write your code here
-  if n < 1:
-    return []
-  return find_unique_trees_recursive(1, n)
-
-def find_unique_trees_recursive(start, end):
-  result = []
-  if start > end:
-    return [None]
-  for i in range(start, end +1):
-    left = find_unique_trees_recursive(start, i-1)
-    right = find_unique_trees_recursive(i+1, end)
-
-    for j in left:
-      for k in right:
-        root = TreeNode(i)
-        root.left = j
-        root.right = k
-        result.append(root)
-  
-  return result
 
 
 

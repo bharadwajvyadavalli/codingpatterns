@@ -1,44 +1,10 @@
 '''
-Problem Challenge 3
 
-Count of Structurally Unique Binary Search Trees (hard)
-
-Given a number ‘n’, write a function to return the count of structurally unique Binary Search Trees (BST) that can store values 1 to ‘n’.
-
-Example 1:
-
-Input: 2
-Output: 2
-Explanation: As we saw in the previous problem, there are 2 unique BSTs storing numbers from 1-2.
-
-Example 2:
-
-Input: 3
-Output: 5
-Explanation: There will be 5 unique BSTs that can store numbers from 1 to 5.
 '''
 
 
 #mycode
-class TreeNode:
-  def __init__(self, val):
-    self.val = val
-    self.left = None
-    self.right = None
 
-
-def count_trees(n):
-  if n < 0:
-    return -1
-  if n <=1 :
-    return 1
-
-  count = 0  
-  for i  in range(1,n+1):
-    left = count_trees(i-1)
-    right = count_trees(n-i)
-    count += left * right
-  return count
 
 
 def main():
