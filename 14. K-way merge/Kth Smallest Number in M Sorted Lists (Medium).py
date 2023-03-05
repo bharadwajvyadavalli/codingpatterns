@@ -1,40 +1,9 @@
 '''
-Problem Statement 
-Given ‘M’ sorted arrays, find the K’th smallest number among all the arrays.
 
-Example 1:
-
-Input: L1=[2, 6, 8], L2=[3, 6, 7], L3=[1, 3, 4], K=5
-Output: 4
-Explanation: The 5th smallest number among all the arrays is 4, this can be verified from the merged 
-list of all the arrays: [1, 2, 3, 3, 4, 6, 6, 7, 8]
-
-Example 2:
-
-Input: L1=[5, 8, 9], L2=[1, 7], K=3
-Output: 7
-Explanation: The 3rd smallest number among all the arrays is 7.
 '''
 
 #mycode
-from heapq import *
 
-def find_Kth_smallest(lists, k):
-  number = -1
-  # TODO: Write your code here
-  result = []
-  for i in range(len(lists)):
-    heappush(result,(lists[i][0], 0, lists[i]))
-  
-  count = 0
-  while result:
-    number, i, cur_list = heappop(result)
-    count += 1
-    if count == k:
-      return number
-    
-    if i+1 < len(cur_list):
-      heappush(result, (cur_list[i+1],i+1,cur_list))
 
 def main():
   print("Kth smallest number is: " +

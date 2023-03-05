@@ -1,51 +1,11 @@
 '''
-Problem Statement 
-Given an array of ‘K’ sorted LinkedLists, merge them into one sorted list.
 
-Example 1:
-
-Input: L1=[2, 6, 8], L2=[3, 6, 7], L3=[1, 3, 4]
-Output: [1, 2, 3, 3, 4, 6, 6, 7, 8]
-Example 2:
-
-Input: L1=[5, 8, 9], L2=[1, 7]
-Output: [1, 5, 7, 8, 9]
 '''
 
 
 #mycode
 
-from __future__ import print_function
-from heapq import *
 
-
-class ListNode:
-  def __init__(self, value):
-    self.value = value
-    self.next = None
-  
-  def __lt__(self, other):
-    return self.value < other.value
-
-
-def merge_lists(lists):
-  # TODO: Write your code here
-  heap = []
-  for root in lists:
-    if root is not None:
-      heappush(heap,root)
-  
-  head, tail = None, None
-  while heap:
-    node = heappop(heap)
-    if head is None:
-      head, tail = node, node
-    else:
-      tail.next = node
-      tail = tail.next
-    if node.next is not None:
-      heappush(heap,node.next)
-  return head
 
 
 def main():

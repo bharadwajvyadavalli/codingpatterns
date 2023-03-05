@@ -1,38 +1,11 @@
 '''
-Problem Statement 
-Given an N * NN∗N matrix where each row and column is sorted in ascending order, find the Kth smallest element in the matrix.
 
-Example 1:
-
-Input: Matrix=[
-    [2, 6, 8], 
-    [3, 7, 10],
-    [5, 8, 11]
-  ], 
-  K=5
-Output: 7
-Explanation: The 5th smallest number in the matrix is 7.
 '''
 
 #mycode
 from heapq import *
 
-def find_Kth_smallest(matrix, k):
-  number = -1
-  # TODO: Write your code here
-  result = []
-  for i in range(len(matrix)):
-    heappush(result,(matrix[i][0], 0, matrix[i]))
-  
-  count = 0
-  while result:
-    number, i, cur_list = heappop(result)
-    count += 1
-    if count == k:
-      return number
-    
-    if i+1 < len(cur_list):
-      heappush(result, (cur_list[i+1],i+1,cur_list))
+
 
 
 
